@@ -25,3 +25,16 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+#home {
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  ),
+  url('/home-bg.png');
+  background-position: right 45% bottom -16px;
+  background-size: 120vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
