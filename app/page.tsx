@@ -1,5 +1,3 @@
-import { Navigation } from './ui/navigation'
-
 export default function Home() {
   return (
     <main id='home' className="mx-auto min-h-custom p-24">
