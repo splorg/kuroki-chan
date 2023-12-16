@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const HeaderSkeleton = () => {
   return (
     <header

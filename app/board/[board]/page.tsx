@@ -1,6 +1,7 @@
+import { Suspense } from "react"
+
 import Header from "@/app/ui/header"
 import { HeaderSkeleton } from "@/app/ui/skeletons"
-import { Suspense } from "react"
 
 const Board = async ({ 
   params, 
