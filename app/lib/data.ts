@@ -1,6 +1,10 @@
 import axios from 'axios'
-import { Board, BoardList, Thread } from './definitions'
+
+import { notFound } from 'next/navigation'
 import { extractBoardInfo } from '@/utils/extractBoardInfo'
+
+import { ALLOWED_BOARDS } from './constants'
+import { Board, BoardList, Thread } from './definitions'
 
 const BASE_URL = 'https://a.4cdn.org/'
 
@@ -9,6 +13,10 @@ const api = axios.create({
 })
 
 export const getBoardInfo = async (board: string) => {
+  if (!ALLOWED_BOARDS.includes(board)) {
+    notFound()
+  }
+
   const { data } = await api.get<BoardList>('boards.json')
 
   const info = extractBoardInfo(data, board)

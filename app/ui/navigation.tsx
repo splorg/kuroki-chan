@@ -3,9 +3,10 @@ import { useState } from "react"
 
 import Link from "next/link"
 
+import { ALLOWED_BOARDS } from "../lib/constants"
+
 export const Navigation = () => {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
-  const boards = ['b', 'fit', 'k', 'a', 'int', 'pol', 'v', 'sci', 'lit', 'x', 'his', 'r9k', 'wg']
 
   return (
     <nav className="bg-slate-400">
@@ -24,7 +25,7 @@ export const Navigation = () => {
             </div>
 
             <div className="hidden md:flex items-center space-x-1">
-              {boards.map(board => (
+              {ALLOWED_BOARDS.map(board => (
                 <Link key={board} href={`/board/${board}`} className="py-4 px-2 hover:text-gray-900 transition duration-300">
                   /{board}/
                 </Link>
@@ -46,7 +47,7 @@ export const Navigation = () => {
       </div>
 
       <div className={`${mobileMenuVisible ? 'min-h-custom min-w-full absolute bg-slate-400' : 'hidden'} md:hidden`}>
-        {boards.map(board => (
+        {ALLOWED_BOARDS.map(board => (
           <Link
             href={`/board/${board}`}
             key={board}

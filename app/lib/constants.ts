@@ -1,0 +1,1 @@
+export const ALLOWED_BOARDS = ['b', 'fit', 'k', 'a', 'int', 'pol', 'v', 'sci', 'lit', 'x', 'his', 'r9k', 'wg']
