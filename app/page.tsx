@@ -7,7 +7,7 @@ export default function Home() {
         >
           kuroki-chan
         </h1>
-        <span>just pick a board to browse</span>
+        <span>pick a board to browse</span>
       </div>
     </main>
   )

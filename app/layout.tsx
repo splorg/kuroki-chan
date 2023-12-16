@@ -9,8 +9,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Kuroki-Chan',
-  description: 'Browsing cambojan basket-weaving forums since 2002!',
+  title: 'kuroki-chan',
+  description: 'Browsing cambodian basket-weaving forums since 2002!',
 }
 
 export default function RootLayout({
