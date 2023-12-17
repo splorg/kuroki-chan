@@ -44,6 +44,7 @@ body {
 }
 
 .quotelink {
+  cursor: pointer;
   color: #38bdf8;
   transition: all 200ms;
 }
@@ -54,6 +55,7 @@ body {
 }
 
 .deadlink {
+  cursor: pointer;
   color: #F87171;
   transition: all 200ms;
 }
