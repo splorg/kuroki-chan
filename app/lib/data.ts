@@ -3,13 +3,11 @@ import axios from 'axios'
 import { notFound } from 'next/navigation'
 import { extractBoardInfo } from '@/utils/extractBoardInfo'
 
-import { ALLOWED_BOARDS } from './constants'
 import { Board, BoardList, Thread } from './definitions'
-
-const BASE_URL = 'https://a.4cdn.org/'
+import { ALLOWED_BOARDS, API_BASE_URL } from './constants'
 
 const api = axios.create({
-  baseURL: BASE_URL
+  baseURL: API_BASE_URL
 })
 
 export const getBoardInfo = async (board: string) => {
@@ -25,7 +23,6 @@ export const getBoardInfo = async (board: string) => {
 }
 
 export const getBoard = async (board: string, page?: number) => {
-  page = page ? page : 1
   const { data } = await api.get<Board>(`${board}/${page}.json`)
 
   return data.threads
