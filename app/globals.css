@@ -38,3 +38,27 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+.quote {
+  color: #789922;
+}
+
+.quotelink {
+  color: #38bdf8;
+  transition: all 200ms;
+}
+
+.quotelink:hover {
+  filter: brightness(0.75);
+  text-decoration: underline;
+}
+
+.deadlink {
+  color: #F87171;
+  transition: all 200ms;
+}
+
+.dealink:hover {
+  filter: brightness(0.75);
+  text-decoration: underline;
+}
