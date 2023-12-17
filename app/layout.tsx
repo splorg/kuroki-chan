@@ -1,12 +1,8 @@
 import { type Metadata } from 'next'
 
-import { Inter } from 'next/font/google'
-
 import { Navigation } from './ui/navigation'
 
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'kuroki-chan',
@@ -20,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Navigation />
         {children}
       </body>
