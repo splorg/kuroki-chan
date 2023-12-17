@@ -60,7 +60,7 @@ body {
   transition: all 200ms;
 }
 
-.dealink:hover {
+.deadlink:hover {
   filter: brightness(0.75);
   text-decoration: underline;
 }
