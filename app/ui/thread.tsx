@@ -10,7 +10,7 @@ type Props = {
 
 const Thread = ({ thread, board }: Props) => {
   const op = thread.posts[0]
-  const replies = thread.posts.toSpliced(0, 1).sort((a, b) => a.time - b.time)
+  const replies = thread.posts.splice(0, 1).sort((a, b) => a.time - b.time)
 
   return (
     <section id={`${op.no}`} className="rounded-lg p-4 bg-slate-600 mx-6 w-fit">
