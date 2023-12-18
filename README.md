@@ -13,7 +13,7 @@ yarn dev or npm run dev
 
 - [x] main navigation
 - [x] board page
-  - [ ] pagination
+  - [x] pagination
   - [ ] different background depending if board is sfw or not
 - [ ] board/thread page
 - [ ] board/catalog page
