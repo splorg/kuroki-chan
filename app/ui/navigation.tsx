@@ -9,7 +9,7 @@ export const Navigation = () => {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
 
   return (
-    <nav className="bg-slate-400">
+    <nav className="bg-slate-400 sticky top-0">
       <div
         className="px-4"
       >

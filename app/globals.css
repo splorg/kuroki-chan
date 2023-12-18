@@ -26,6 +26,17 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+body::-webkit-scrollbar {
+  width: 5px;
+  background-color: #94A3B8;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  background-color: #334155;
+  border-radius: 5px;
+}
+
 #home {
   background-image: linear-gradient(
     to bottom,
