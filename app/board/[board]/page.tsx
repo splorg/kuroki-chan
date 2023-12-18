@@ -28,7 +28,6 @@ const Board = async ({
       <Suspense fallback={<ContentSkeleton />}>
         <ContentWrapper board={board} page={page} />
       </Suspense>
-      {/* <ContentSkeleton /> */}
     </main>
   )
 }
