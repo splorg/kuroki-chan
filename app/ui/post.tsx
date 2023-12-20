@@ -25,7 +25,7 @@ const Post = ({ post, board }: Props) => {
     <div className="flex flex-col gap-3">
       <div className="flex flex-col">
         {post.sub ? (
-            <h3 className="text-red-400">{post.sub}</h3>
+            <h3 className="text-red-400" dangerouslySetInnerHTML={{ __html: post.sub }} />
         ) : null}
         <span className="text-green-400">{post.name} - {dateStringFromTimestamp(post.time)} - #{post.no}</span>
       </div>
