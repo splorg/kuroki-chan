@@ -13,7 +13,7 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
-  }
+}
 }
 
 body {
@@ -74,4 +74,102 @@ body::-webkit-scrollbar-thumb {
 .deadlink:hover {
   filter: brightness(0.75);
   text-decoration: underline;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 6rem;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  text-align: left;
+}
+ 
+.toggle-switch-checkbox {
+  display: none;
+}
+ 
+.toggle-switch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0 solid #bbb;
+  border-radius: 20px;
+  margin: 0;
+}
+ 
+.toggle-switch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+ 
+.toggle-switch-inner:before,
+.toggle-switch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 2rem;
+  padding: 0;
+  line-height: 2rem;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+ 
+.toggle-switch-inner:before {
+  content: attr(data-yes);
+  text-transform: uppercase;
+  padding-left: 10px;
+  background-color: #f87171;
+  color: #fff;
+}
+ 
+.toggle-switch-disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+ 
+.toggle-switch-disabled:before {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+ 
+.toggle-switch-inner:after {
+  content: attr(data-no);
+  text-transform: uppercase;
+  padding-right: 10px;
+  background-color: #334155;
+  color: #fff;
+  text-align: right;
+}
+ 
+.toggle-switch-switch {
+  display: block;
+  width: 24px;
+  margin: 5px;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 3.9rem;
+  border: 0 solid #bbb;
+  border-radius: 20px;
+  transition: all 0.3s ease-in 0s;
+}
+ 
+.toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-inner {
+  margin-left: 0;
+}
+ 
+.toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-switch {
+  right: 0px;
+}
+
+@media (max-width: 768px) {
+  
 }

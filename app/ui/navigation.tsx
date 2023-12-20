@@ -4,9 +4,25 @@ import { useState } from "react"
 import Link from "next/link"
 
 import { ALLOWED_BOARDS } from "../lib/constants"
+import ToggleSwitch from "./toggle-switch"
 
 export const Navigation = () => {
+  const filteredBoards = ALLOWED_BOARDS.filter(board => board.sfw)
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
+  const [nsfwAllowed, setNsfwAllowed] = useState(false)
+  const [boards, setBoards] = useState(filteredBoards)
+
+  const handleAllowNsfw = (value: boolean) => {
+    if (value) {
+      setNsfwAllowed(true)
+      setBoards(ALLOWED_BOARDS)
+    }
+
+    if (!value) {
+      setNsfwAllowed(false)
+      setBoards(filteredBoards)
+    }
+  }
 
   return (
     <nav className="bg-slate-400 sticky top-0">
@@ -25,14 +41,20 @@ export const Navigation = () => {
             </div>
 
             <div className="hidden md:flex items-center space-x-1">
-              {ALLOWED_BOARDS.map(board => (
-                <Link key={board} href={`/board/${board}`} className="py-4 px-2 hover:text-gray-900 transition duration-300">
-                  /{board}/
+              {boards.map(board => (
+                <Link key={board.name} href={`/board/${board.name}`} className="py-4 px-2 hover:text-gray-900 transition duration-300">
+                  /{board.name}/
                 </Link>
               ))}
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-1">
+            <ToggleSwitch
+              falseText="SFW"
+              trueText="NSFW"
+              name="toggle-nsfw"
+              onSwitch={handleAllowNsfw}
+            />
             <div className="cursor-pointer py-4 px-3 hover:text-gray-900 transition duration-300">
               <a 
                 className="flex items-center gap-2"
@@ -44,7 +66,6 @@ export const Navigation = () => {
                 </svg>
                 <span className="hidden lg:inline">Source</span>
               </a>
-
             </div>
           </div>
           <div className="md:hidden flex items-center">
@@ -61,13 +82,19 @@ export const Navigation = () => {
       </div>
 
       <div className={`${mobileMenuVisible ? 'min-h-custom min-w-full absolute bg-slate-400' : 'hidden'} md:hidden`}>
-        {ALLOWED_BOARDS.map(board => (
+        <div className="px-4 py-2 min-w-full">
+          <div className="flex items-center gap-3">
+            <input className="w-4 h-4" type="checkbox" name="toggle-nsfw" id="toggle-nsfw" onChange={e => handleAllowNsfw(e.target.checked)} />
+            <label htmlFor="toggle-nsfw">{nsfwAllowed ? 'NSFW' : 'SFW'}</label>
+          </div>
+        </div>
+        {boards.map(board => (
           <Link
-            href={`/board/${board}`}
-            key={board}
+            href={`/board/${board.name}`}
+            key={board.name}
             className="cursor-pointer block py-2 px-4 text-sm hover:bg-slate-600 transition duration-300"
           >
-            /{board}/
+            /{board.name}/
           </Link>
         ))}
         <a 

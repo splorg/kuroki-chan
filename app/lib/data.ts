@@ -11,7 +11,8 @@ const api = axios.create({
 })
 
 export const getBoardInfo = async (board: string) => {
-  if (!ALLOWED_BOARDS.includes(board)) {
+  const allowedBoardNames = ALLOWED_BOARDS.map(board => board.name)
+  if (!allowedBoardNames.includes(board)) {
     notFound()
   }
 
