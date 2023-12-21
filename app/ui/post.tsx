@@ -19,7 +19,6 @@ const Post = ({ post, board }: Props) => {
           alt={`${post.tim}${post.ext}`}
           width={post.tn_w}
           height={post.tn_h}
-          unoptimized
         />
       </div>
     ) : null}

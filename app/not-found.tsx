@@ -12,7 +12,6 @@ const NotFound = () => {
         width={330}
         height={330}
         className='outline outline-2 outline-white'
-        unoptimized
       />
     </main>
   )
