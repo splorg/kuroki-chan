@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true,
-    domains: [
-      'i.4cdn.org'
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.4cdn.org',
+        port: '',
+        pathname: '**'
+      }
     ]
   }
 }
