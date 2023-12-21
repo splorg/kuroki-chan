@@ -1,5 +1,4 @@
-import Image from "next/image"
-import { generateImageUrl } from "@/utils/generateImageUrl"
+import { generateThumbnailUrl } from "@/utils/generateThumbnailUrl"
 import { dateStringFromTimestamp } from "@/utils/dateStringFromTimestamp"
 
 import { Post } from "../lib/definitions"
@@ -14,11 +13,12 @@ const Post = ({ post, board }: Props) => {
     <div id={`p${post.no}`} className="rounded-lg bg-slate-700 w-fit p-4 flex flex-col md:flex-row gap-8 justify-evenly">
     {post.tim && post.ext && post.ext !== '.webm' ? (
       <div>
-        <Image
-          src={generateImageUrl(post, board)}
+        <img
+          src={generateThumbnailUrl(post, board)}
           alt={`${post.tim}${post.ext}`}
           width={post.tn_w}
           height={post.tn_h}
+          loading="lazy"
         />
       </div>
     ) : null}
