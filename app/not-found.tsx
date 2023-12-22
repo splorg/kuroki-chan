@@ -7,7 +7,7 @@ const NotFound = () => {
     >
       <h1 className='text-xl'>not found!</h1>
       <Image 
-        src="/not-found.jpg"
+        src="/not-found.webp"
         alt='Confused Kuroki-chan.'
         width={330}
         height={330}
