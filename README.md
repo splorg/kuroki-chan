@@ -17,6 +17,6 @@ yarn dev or npm run dev
   - [ ] different background depending if board is sfw or not
 - [ ] board/thread page
 - [ ] board/catalog page
-- [ ] supporting webm
-- [ ] supporting viewing full size images
+- [x] supporting webm
+- [x] supporting viewing full size files
 - [ ] viewing post on quotelink hover
