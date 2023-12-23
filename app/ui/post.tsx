@@ -47,8 +47,11 @@ const Post = ({ post, board }: Props) => {
           height={post.tn_h}
           onClick={openLightbox}
           loading="lazy"
-          className="cursor-pointer"
+          className="cursor-pointer rounded hover:scale-110 hover:rounded-none transition-all ease-linear"
         />
+        {hasFile && post.ext === '.webm' ? (
+          <span className="text-red-400 text-sm">(video)</span>
+        ) : null}
       </div>
     ) : null}
     <div className="flex flex-col gap-3">
