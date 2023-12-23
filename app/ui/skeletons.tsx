@@ -22,3 +22,18 @@ export const ContentSkeleton = () => {
     </section>
   )
 }
+
+export const ThreadSkeleton = () => {
+  return (
+    <section className="mt-8 mb-12 flex flex-col gap-3 animate-pulse w-full">
+      <section className="rounded-lg p-4 bg-slate-400 mx-6">
+        <div className="rounded-lg p-4 mx-6 w-[90%] h-60 bg-slate-500" />
+        <div className="flex flex-col gap-3 py-2 px-4">
+          <div className="rounded-lg p-4 mx-6 w-[90%] md:w-1/3 h-40 bg-slate-500" />
+          <div className="rounded-lg p-4 mx-6 w-[90%] md:w-1/3 h-60 bg-slate-500" />
+          <div className="rounded-lg p-4 mx-6 w-[90%] md:w-1/2 h-80 bg-slate-500" />
+        </div>
+      </section>
+    </section>
+  )
+}

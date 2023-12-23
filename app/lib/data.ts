@@ -30,7 +30,11 @@ export const getBoard = async (board: string, page?: number) => {
 }
 
 export const getThread = async (board: string, id: number) => {
-  const { data } = await api.get<Thread>(`${board}/thread/${id}.json`)
-
-  return data
+  try {
+    const { data } = await api.get<Thread>(`${board}/thread/${id}.json`)
+  
+    return data
+  } catch {
+    notFound()
+  }
 }
