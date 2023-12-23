@@ -15,7 +15,7 @@ yarn dev or npm run dev
 - [x] board page
   - [x] pagination
   - [ ] different background depending if board is sfw or not
-- [ ] board/thread page
+- [x] board/thread page
 - [ ] board/catalog page
 - [x] supporting webm
 - [x] supporting viewing full size files
