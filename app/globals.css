@@ -169,7 +169,3 @@ body::-webkit-scrollbar-thumb {
 .toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-switch {
   right: 0px;
 }
-
-@media (max-width: 768px) {
-  
-}
