@@ -25,7 +25,7 @@ export const Navigation = () => {
   }
 
   return (
-    <nav className="bg-slate-400 sticky top-0">
+    <nav className="bg-slate-400 sticky top-0 z-50">
       <div
         className="px-4"
       >
