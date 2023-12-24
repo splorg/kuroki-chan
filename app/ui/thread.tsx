@@ -17,11 +17,11 @@ const Thread = async ({ id, board, expanded }: Props) => {
 
   return (
     <section id={`${op.no}`} className="rounded-lg p-4 bg-slate-600 mx-6 w-fit">
-      <Post post={op} board={board} />
+      <Post post={op} board={board} thread={threadContent} />
       {expanded ? (
         <div className="flex flex-col gap-3 py-2 px-4">
           {replies.map(reply => (
-            <Post key={reply.no} post={reply} board={board} />
+            <Post key={reply.no} post={reply} board={board} thread={threadContent} />
           ))}
         </div>
         ) : op.replies! > 0 ? (
@@ -39,7 +39,7 @@ const Thread = async ({ id, board, expanded }: Props) => {
                 </Link>
               ) : null}
               {previewReplies.map(reply => (
-                <Post key={reply.no} post={reply} board={board} />
+                <Post key={reply.no} post={reply} board={board} thread={threadContent} />
               ))}
             </div>
           </details>
