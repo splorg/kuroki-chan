@@ -19,4 +19,4 @@ yarn dev or npm run dev
 - [ ] board/catalog page
 - [x] supporting webm
 - [x] supporting viewing full size files
-- [ ] viewing post on quotelink hover
+- [x] viewing replied post on quotelink hover
