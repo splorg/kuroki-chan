@@ -1,15 +1,16 @@
 import Link from "next/link"
+import { useStore } from "@/stores/store"
 
 import Post from "./post"
 import { getThread } from "../lib/data"
 
 type Props = {
   id: string
-  board: string
-  expanded: boolean
+  expanded?: boolean
 }
 
-const Thread = async ({ id, board, expanded }: Props) => {
+const Thread = async ({ id, expanded }: Props) => {
+  const board = useStore.getState().board
   const threadContent = await getThread(board, Number(id))
   const op = threadContent.posts[0]
   const replies = threadContent.posts.slice(1).sort((a, b) => a.time - b.time)
@@ -17,11 +18,11 @@ const Thread = async ({ id, board, expanded }: Props) => {
 
   return (
     <section id={`${op.no}`} className="rounded-lg p-4 bg-slate-600 mx-6 w-fit">
-      <Post post={op} board={board} thread={threadContent} />
+      <Post post={op} thread={threadContent} />
       {expanded ? (
         <div className="flex flex-col gap-3 py-2 px-4">
           {replies.map(reply => (
-            <Post key={reply.no} post={reply} board={board} thread={threadContent} />
+            <Post key={reply.no} post={reply} thread={threadContent} />
           ))}
         </div>
         ) : op.replies! > 0 ? (
@@ -39,7 +40,7 @@ const Thread = async ({ id, board, expanded }: Props) => {
                 </Link>
               ) : null}
               {previewReplies.map(reply => (
-                <Post key={reply.no} post={reply} board={board} thread={threadContent} />
+                <Post key={reply.no} post={reply} thread={threadContent} />
               ))}
             </div>
           </details>

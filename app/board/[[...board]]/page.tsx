@@ -1,9 +1,11 @@
 import { Suspense } from "react"
 
 import Header from "@/app/ui/header"
+import { useStore } from "@/stores/store"
 import { notFound } from "next/navigation"
+import { HeaderSkeleton } from "@/app/ui/skeletons"
 import ContentWrapper from "@/app/ui/content-wrapper"
-import { ContentSkeleton, HeaderSkeleton, ThreadSkeleton } from "@/app/ui/skeletons"
+import StoreInitializer from "@/app/ui/store-initializer"
 
 const Board = async ({ 
   params, 
@@ -24,19 +26,11 @@ const Board = async ({
   const page = searchParams.page || '1'
   const thread = params.board[1]
 
-  let contentWrapperProps: Record<string, string> = {
-    board
-  }
-
-  if (!!thread) {
-    contentWrapperProps.mode = 'thread'
-  } else {
-    contentWrapperProps.mode = 'list'
-    contentWrapperProps.page = 'page'
-  }
+  useStore.setState({ board, page, thread })
 
   return (
     <main className="flex flex-col gap-2">
+      <StoreInitializer page={page} board={board} />
       {!thread ? (
         <Suspense fallback={<HeaderSkeleton />}>
           <Header
@@ -44,15 +38,7 @@ const Board = async ({
           />
         </Suspense>
       ) : null}
-      {thread ? (
-        <Suspense fallback={<ThreadSkeleton />}>
-          <ContentWrapper mode="thread" board={board} threadId={thread}/>
-        </Suspense>
-      ) : (
-        <Suspense fallback={<ContentSkeleton />}>
-          <ContentWrapper mode="list" board={board} page={page} />
-        </Suspense>
-      )}
+      <ContentWrapper />
     </main>
   )
 }
