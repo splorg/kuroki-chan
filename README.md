@@ -1,5 +1,7 @@
 a WataMote-themed website for browsing mongolian rug-making discussion boards
 
+currently available at: [kuroki-chan](https://kurokichan.com)
+
 i made this for practice with Next.js with App router, react server components and tailwind
 
 ```bash
