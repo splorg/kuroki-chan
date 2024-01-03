@@ -1,16 +1,21 @@
 'use client'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 
-import { ALLOWED_BOARDS } from "../lib/constants"
 import ToggleSwitch from "./toggle-switch"
+import { ALLOWED_BOARDS } from "../lib/constants"
 
 export const Navigation = () => {
   const filteredBoards = ALLOWED_BOARDS.filter(board => board.sfw)
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
+  const [nsfwToggleVisible, setNsfwToggleVisible] = useState(false)
   const [nsfwAllowed, setNsfwAllowed] = useState(false)
   const [boards, setBoards] = useState(filteredBoards)
+  const searchParams = useSearchParams()
+
+  const publicMode = searchParams.get('p') === 'true'
 
   const handleAllowNsfw = (value: boolean) => {
     if (value) {
@@ -23,6 +28,15 @@ export const Navigation = () => {
       setBoards(filteredBoards)
     }
   }
+
+  useEffect(() => {
+    if (publicMode) {
+      localStorage.setItem('publicMode', 'true')
+    }
+
+    const toggleVisible = !publicMode && localStorage.getItem('publicMode') === null
+    setNsfwToggleVisible(toggleVisible)
+  }, [])
 
   return (
     <nav className="bg-slate-400 sticky top-0 z-50">
@@ -49,12 +63,14 @@ export const Navigation = () => {
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-1">
-            <ToggleSwitch
-              falseText="SFW"
-              trueText="NSFW"
-              name="toggle-nsfw"
-              onSwitch={handleAllowNsfw}
-            />
+            {nsfwToggleVisible ? (
+              <ToggleSwitch
+                falseText="SFW"
+                trueText="NSFW"
+                name="toggle-nsfw"
+                onSwitch={handleAllowNsfw}
+              />
+            ) : null}
             <div className="cursor-pointer py-4 px-3 hover:text-gray-900 transition duration-300">
               <a 
                 className="flex items-center gap-2"
