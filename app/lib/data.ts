@@ -3,7 +3,7 @@ import axios from 'axios'
 import { notFound } from 'next/navigation'
 import { extractBoardInfo } from '@/utils/extractBoardInfo'
 
-import { Board, BoardList, Thread } from './definitions'
+import { Board, BoardList, Catalog, Thread } from './definitions'
 import { ALLOWED_BOARDS, API_BASE_URL } from './constants'
 
 const api = axios.create({
@@ -42,4 +42,17 @@ export const getThread = async (board: string, id: number) => {
   } catch {
     notFound()
   }
+}
+
+export const getCatalog = async (board: string) => {
+  const allowedBoardNames = ALLOWED_BOARDS.map(board => board.name)
+  if (!allowedBoardNames.includes(board)) {
+    notFound()
+  }
+
+  const { data } = await api.get<Catalog>(`${board}/catalog.json`)
+
+  const onlyThreads = data.flatMap(page => page.threads)
+
+  return onlyThreads
 }

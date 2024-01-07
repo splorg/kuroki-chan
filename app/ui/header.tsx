@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { getBoardInfo } from "../lib/data"
 
 type Props = {
@@ -18,6 +19,10 @@ const Header = async ({ board }: Props) => {
       <h2 
         dangerouslySetInnerHTML={{__html: meta_description}} 
       />
+      <div className="flex gap-4">
+        <Link className="underline hover:opacity-50 transition-all duration-200" href={`/catalog/${board}`}>Catalog</Link>
+        <Link className="underline hover:opacity-50 transition-all duration-200" href={`/board/${board}`}>Threads</Link>
+      </div>
     </header>
   )
 }

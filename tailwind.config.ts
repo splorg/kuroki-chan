@@ -11,6 +11,9 @@ const config: Config = {
       minHeight: {
         'custom': 'calc(100vh - 56px)'
       },
+      gridTemplateColumns: {
+        'auto-fit-300': 'repeat(auto-fit, minmax(300px, 1fr))'
+      }
     },
   },
   plugins: [],

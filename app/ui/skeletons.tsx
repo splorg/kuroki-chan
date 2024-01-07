@@ -37,3 +37,82 @@ export const ThreadSkeleton = () => {
     </section>
   )
 }
+
+export const CatalogSkeleton = () => {
+  return (
+    <section className="p-4 grid grid-cols-auto-fit-300 gap-4 animate-pulse w-full">
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+      <div className="flex flex-col gap-3 items-center w-[300px] p-3">
+        <div className="w-56 h-60 bg-slate-500" />
+        <div className="w-36 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+        <div className="w-44 h-4 bg-slate-500" />
+      </div>
+    </section>
+  )
+}

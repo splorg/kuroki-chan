@@ -73,3 +73,54 @@ export type BoardList = {
     math_tags?: number
   }[]
 }
+
+export type Catalog = {
+  page: number
+  threads: {
+    no: number
+    sticky?: number
+    closed?: number
+    now: string
+    name: string
+    sub?: string
+    com: string
+    filename: string
+    ext: string
+    w: number
+    h: number
+    tn_w: number
+    tn_h: number
+    tim: number
+    time: number
+    md5: string
+    fsize: number
+    resto: number
+    capcode?: string
+    semantic_url: string
+    replies: number
+    images: number
+    omitted_posts: number
+    omitted_images: number
+    last_replies: {
+      no: number
+      now: string
+      name: string
+      com: string
+      filename?: string
+      ext?: string
+      w?: number
+      h?: number
+      tn_w?: number
+      tn_h?: number
+      tim?: number
+      time: number
+      md5?: string
+      fsize?: number
+      resto: number
+      capcode?: string
+    }[]
+    last_modified: number
+    bumplimit?: number
+    imagelimit?: number
+  }[]
+}[]
