@@ -1,4 +1,5 @@
 export const ALLOWED_BOARDS = [
+  { name: 'c', sfw: true },
   { name: 'b', sfw: false },
   { name: 'fit', sfw: true },
   { name: 'k', sfw: true },
