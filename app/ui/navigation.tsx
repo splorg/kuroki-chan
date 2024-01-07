@@ -99,10 +99,12 @@ export const Navigation = () => {
 
       <div className={`${mobileMenuVisible ? 'min-h-custom min-w-full absolute bg-slate-400' : 'hidden'} md:hidden`}>
         <div className="px-4 py-2 min-w-full">
-          <div className="flex items-center gap-3">
-            <input className="w-4 h-4" type="checkbox" name="toggle-nsfw" id="toggle-nsfw" onChange={e => handleAllowNsfw(e.target.checked)} />
-            <label htmlFor="toggle-nsfw">{nsfwAllowed ? 'NSFW' : 'SFW'}</label>
-          </div>
+          {nsfwToggleVisible ? (
+            <div className="flex items-center gap-3">
+              <input className="w-4 h-4" type="checkbox" name="toggle-nsfw" id="toggle-nsfw" onChange={e => handleAllowNsfw(e.target.checked)} />
+              <label htmlFor="toggle-nsfw">{nsfwAllowed ? 'NSFW' : 'SFW'}</label>
+            </div>
+          ) : null}
         </div>
         {boards.map(board => (
           <Link
