@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { Post } from "../lib/definitions"
+
 import PostFile from "./post-file"
+import { Post } from "../lib/definitions"
 
 type Props = {
   post: Post

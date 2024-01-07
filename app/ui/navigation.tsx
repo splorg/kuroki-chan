@@ -36,7 +36,7 @@ export const Navigation = () => {
 
     const toggleVisible = !publicMode && localStorage.getItem('publicMode') === null
     setNsfwToggleVisible(toggleVisible)
-  }, [])
+  }, [publicMode])
 
   return (
     <nav className="bg-slate-400 sticky top-0 z-50">

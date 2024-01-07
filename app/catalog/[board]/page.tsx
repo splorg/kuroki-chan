@@ -1,8 +1,8 @@
-import { getCatalog } from "@/app/lib/data"
-import { CatalogWrapper } from "@/app/ui/catalog-wrapper"
-import Header from "@/app/ui/header"
-import { CatalogSkeleton, HeaderSkeleton } from "@/app/ui/skeletons"
 import { Suspense } from "react"
+
+import Header from "@/app/ui/header"
+import { CatalogWrapper } from "@/app/ui/catalog-wrapper"
+import { CatalogSkeleton, HeaderSkeleton } from "@/app/ui/skeletons"
 
 const Catalog = async ({ 
   params
