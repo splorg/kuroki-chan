@@ -11,14 +11,14 @@ yarn or npm i
 yarn dev or npm run dev
 ```
 
-#### TO-DO:
+#### FEATURES:
 
 - [x] main navigation
 - [x] board page
   - [x] pagination
-  - [ ] different background depending if board is sfw or not
+  - [x] different background depending if board is sfw or not
 - [x] board/thread page
-- [ ] board/catalog page
+- [x] catalog/board page
 - [x] supporting webm
 - [x] supporting viewing full size files
 - [x] viewing replied post on quotelink hover
