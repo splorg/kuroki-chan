@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from "react"
+import { ElementRef, useEffect, useRef, useState } from "react"
 
 import { parsePostIdFromQuotelink } from "@/utils/parsePostIdFromQuotelink"
 
@@ -18,7 +18,7 @@ const PostContent = ({ post, thread, board }: Props) => {
   const [repliedPost, setRepliedPost] = useState<Post>()
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [modifiedContent, setModifiedContent] = useState(post.com)
-  const mouseMoveRef = useRef<HTMLDivElement>(null)
+  const mouseMoveRef = useRef<ElementRef<'div'>>(null)
 
 
   const modifyQuotelinks = (html: string, op: number) => {
@@ -52,6 +52,28 @@ const PostContent = ({ post, thread, board }: Props) => {
       setCursorPosition({ x: e.clientX, y: e.clientY })
     }
 
+    const isOutOfView = (element: HTMLElement) => {
+      const rect = element.getBoundingClientRect()
+  
+      return (
+        rect.bottom <= 0 ||
+        rect.right <= 0 ||
+        rect.top >= window.innerHeight ||
+        rect.left >= window.innerHeight
+      )
+    }
+
+    const handleScroll = (e: Event) => {
+      const post = mouseMoveRef.current
+
+      if (!post) return
+
+      if (isOutOfView(post)) {
+        setRepliedPost(undefined)
+        setIsHovering(false)
+      }
+    }
+
     const checkHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement
   
@@ -70,13 +92,16 @@ const PostContent = ({ post, thread, board }: Props) => {
       }
     }
 
+    window.addEventListener('scroll', handleScroll)
+
     if (postRef) {
       postRef.addEventListener('mousemove', updateCursorPosition)
       postRef.addEventListener("mousemove", checkHover, true)
     }
-   
 
     return () => {
+      window.removeEventListener('scroll', handleScroll)
+
       if (postRef) {
         postRef.removeEventListener('mousemove', updateCursorPosition)
         postRef.removeEventListener("mousemove", checkHover, true)
