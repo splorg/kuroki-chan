@@ -11,7 +11,7 @@ export const CatalogWrapper = async ({ board }: Props) => {
   return (
     <section className="p-4 grid grid-cols-auto-fit-300 gap-4">
       {threads.map(thread => (
-        <CatalogPreview post={thread} board={board} />
+        <CatalogPreview key={thread.no} post={thread} board={board} />
       ))}
     </section>
   )
