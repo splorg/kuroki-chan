@@ -6,6 +6,8 @@ import { notFound } from "next/navigation"
 import { HeaderSkeleton } from "@/app/ui/skeletons"
 import ContentWrapper from "@/app/ui/content-wrapper"
 import StoreInitializer from "@/app/ui/store-initializer"
+import clsx from "clsx"
+import { isBoardSafe } from "@/utils/isBoardSafe"
 
 const Board = async ({ 
   params, 
@@ -28,8 +30,16 @@ const Board = async ({
 
   useStore.setState({ board, page, thread })
 
+  const classname = clsx(
+    'flex flex-col gap-2',
+    {
+      'bg-board-sfw': isBoardSafe(board),
+      'bg-board-nsfw': !isBoardSafe(board)
+    }
+  )
+
   return (
-    <main className="flex flex-col gap-2">
+    <main className={classname}>
       <StoreInitializer page={page} board={board} />
       {!thread ? (
         <Suspense fallback={<HeaderSkeleton />}>

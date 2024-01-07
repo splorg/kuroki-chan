@@ -50,6 +50,36 @@ body::-webkit-scrollbar-thumb {
   background-attachment: fixed;
 }
 
+.bg-board-sfw {
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  ),
+  url('/bg-sfw.webp');
+  background-repeat: no-repeat;
+  background-position: right 25% bottom -16px;
+  background-size: 450px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-shadow: 0 0 8px 8px rgb(var(--background-end-rgb)) inset;
+}
+
+.bg-board-nsfw {
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  ),
+  url('/bg-nsfw.webp');
+  background-repeat: no-repeat;
+  background-position: right 25% bottom -16px;
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-shadow: 0 0 8px 8px rgb(var(--background-end-rgb)) inset;
+}
+
 .quote {
   color: #789922;
 }
