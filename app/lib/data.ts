@@ -24,6 +24,11 @@ export const getBoardInfo = async (board: string) => {
 }
 
 export const getBoard = async (board: string, page?: number) => {
+  const allowedBoardNames = ALLOWED_BOARDS.map(board => board.name)
+  if (!allowedBoardNames.includes(board)) {
+    notFound()
+  }
+
   const { data } = await api.get<Board>(`${board}/${page}.json`)
 
   return data.threads
