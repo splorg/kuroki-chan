@@ -62,8 +62,7 @@ export const Navigation = () => {
       </div>
 
       <div
-        id="mobile-menu"
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
+        className={`absolute left-0 top-full w-full bg-card border-b border-border shadow-lg md:hidden overflow-hidden transition-all duration-300 ${
           mobileOpen
             ? "max-h-[80vh] opacity-100 translate-y-0"
             : "max-h-0 opacity-0 -translate-y-2"
